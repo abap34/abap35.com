@@ -1,0 +1,130 @@
+JITrench.jl: 
+  title: JITrench.jl
+  img: /works/img/jitrench.png
+  repo: abap34/JITrench.jl
+  desc: |
+    JITrench.jl は, Julia言語製の自動微分ライブラリ・深層学習フレームワークです。
+    深層学習フレームワークの動作原理に興味をもち,フルクスラッチで実装しました。
+    Define-by-Run, Explicitなパラメータ管理など, 現代的な深層学習フレームワークの基本的な機能を提供しています。
+    また,量子化や計算グラフの最適化など,さまざまなアルゴリズムをこのフレームワーク上で実装しました。
+  lang:
+    - Julia
+  tags:
+    - Julia
+    - 機械学習
+    - 深層学習
+    - OSS
+  period: 2021 ~ 2023
+  
+almo: 
+  title: almo
+  img: /works/img/almo.png
+  repo: abap34/almo
+  lang: 
+    - C++
+    - Python
+  relatedlinks:
+    - https://www.abap34.com/posts/footnote_implement.html
+    - https://www.abap34.com/posts/pybind11.html
+  desc: |
+    almo は C++・Python製の拡張 Markdownパーサ・静的サイトジェネレータです。
+    Markdownファイルをパースし, HTMLファイルに変換します。
+    パーサはパフォーマンスを重視して C++ で実装されていますが,Python向けのバインディングも提供しており,Pythonからも利用・拡張が可能です。 
+    almo のもっとも特徴的な機能として, PyOdide を利用してブラウザ上で Pythonファイルの実行・プロットができるというものがあります。例えば機械学習や数値計算,アルゴリズムなどに関心がある人にとって便利な執筆環境を提供することを目指しています。
+    このサイトのブログもalmo によって作られています.
+  
+  tags:
+    - C++
+    - Python
+    - パーサ
+    - OSS
+  period: 2023 ~
+
+Minia.jl:
+  title: Minia.jl
+  img: /works/img/minia.png
+  repo: abap34/Minia.jl
+  desc: |
+    Minia.jl は Julia 製の言語処理系です。
+    PEG パーサを利用してパースを行い, Julia の AST にトランスパイルして動作します。
+  lang: 
+    - Julia
+  relatedlinks:
+    - https://www.abap34.com/posts/mini-lang.html
+    - https://www.abap34.com/posts/tinypeg.html
+  tags:
+    - Julia
+    - パーサ
+    - 言語処理系
+    - OSS
+  period: 2023
+
+
+TinyPEG.jl:
+  title: TinyPEG.jl
+  img: /works/img/tinypeg.gif
+  repo: abap34/TinyPEG.jl
+  desc: |
+    PEGパーサジェネレータの原理と実装に興味を持って実装した PEG パーサジェネレータです。
+  lang:
+    - Julia
+  tags:
+    - Julia
+    - パーサ
+    - OSS
+  relatedlinks:
+    - https://www.abap34.com/posts/tinypeg.html
+  period: 2023
+
+abap34.com:
+  title: abap34.com
+  img: /works/img/abap34com.png
+  repo: abap34/abap34.com
+  desc: |
+    このサイトです。
+    React への書き換えを進めている最中です。
+  lang:
+    - HTML
+    - CSS
+    - JavaScript
+  tags:
+    - React
+    - Web
+  relatedlinks:
+    - https://www.abap34.com/posts.html
+  period: 2022
+
+
+DacQ-v2:  
+  title: DacQ-v2
+  img: /works/img/dacq.png
+  repo: abap34/DacQ-v2
+  desc: |
+    DacQ-v2 は, サークルでデータ分析コンペを開催するために開発したStreamlit で作ったデータ分析コンペティションのプラットフォームです。
+    チーム戦や Jupyter Notebookベースのディスカッション機能など, 基本的なデータ分析コンペの機能が揃っています。
+  lang:
+    - Python
+    - Streamlit
+    - mariaDB
+  tags:
+    - Python
+    - Streamlit
+    - Web
+    - mariaDB
+  period: 2024
+  
+ml-lecture-judge:
+  title: ml-lecture-judge
+  img: /works/img/ml-lecture-judge.png
+  desc: |
+    オンラインジャッジシステムです。
+    機械学習の講義で利用することを想定して開発しました。
+    フロントは React,バックエンドは FastAPI で実装しています。
+  lang:
+    - Python
+    - JavaScript
+  tags:
+    - React
+    - FastAPI
+    - mariaDB
+    
