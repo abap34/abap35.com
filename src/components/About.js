@@ -25,8 +25,8 @@ export default function About() {
 
                         計算機を使うことで、
                         <ul className="list-disc list-inside text-gray-800 dark:text-gray-200 pb-4">
-                            <li> 人間しかできなかったようなことが、機械もできるようになること </li>
-                            <li> 人間にできなかったことが、機会もできるようになること </li>
+                            <li> 人間しかできなかったことが、できるようになること </li>
+                            <li> 人間にはできなかったなことが、できるようになること </li>
                         </ul>
 
                         が好きです。
