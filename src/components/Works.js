@@ -60,14 +60,14 @@ const Modal = ({ work, onClose }) => {
             onClick={handleBackgroundClick}
         >
             <div
-                className={`bg-white p-6 rounded-lg shadow-lg p-4 m-4 transform transition-transform duration-300 ${isVisible ? "scale-100" : "scale-0"} dark:bg-gray-900 overflow-y-auto`}
+                className={`bg-white p-2 rounded-lg shadow-lg ransform transition-transform duration-300 ${isVisible ? "scale-100" : "scale-0"} dark:bg-gray-900`}
                 onClick={(e) => e.stopPropagation()}
             >
                 <button onClick={onClose} className="absolute top-4 right-4 text-2xl">
                     &times;
                 </button>
 
-                <div className="flex items-center">
+                <div className="flex items-center p-4 m-4">
                     <img src={work.img} alt={work.title} className="hidden md:block w-1/3 h-auto rounded-lg p-4" />
                     <div>
                         <h2 className="text-lg font-semibold">{work.title}</h2>
@@ -76,7 +76,7 @@ const Modal = ({ work, onClose }) => {
                             work.relatedlinks && work.relatedlinks.map((link, index) => (
                                 <div key={index} className="flex items-center my-2">
                                     <FaLink className="mr-2" />
-                                    <a href={link} target="_blank" rel="noreferrer" className="hover:text-blue-600 transition duration-300 text-sm">
+                                    <a href={link} target="_blank" rel="noreferrer" className="hover:text-blue-600 transition duration-300 text-sm break-all">
                                         {link}
                                     </a>
                                 </div>
