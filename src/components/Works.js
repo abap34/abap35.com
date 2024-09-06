@@ -20,12 +20,18 @@ const GithubLink = ({ repo }) => (
 const Tags = ({ tags }) => (
     <div className="flex items-center">
         <FaTag className="mr-2" />
-        <p className="text-sm text-gray-600">{tags.join(", ")}</p>
+        <p className="text-sm text-gray-600 dark:text-gray-400">
+            {tags.map((tag, index) => (
+                <span key={index} className="bg-gray-200 dark:bg-gray-800 rounded-full px-2 py-1 text-xs mr-2">
+                    {tag}
+                </span>
+            ))}
+        </p>
     </div>
 );
 
 const MarkdownContent = ({ content }) => (
-    <p className="text-sm text-gray-600 whitespace-pre-wrap my-2">
+    <p className="text-sm text-gray-600 whitespace-pre-wrap my-2 dark:text-gray-400">
         <ReactMarkdown>{content}</ReactMarkdown>
     </p>
 );
@@ -52,7 +58,7 @@ const Modal = ({ work, onClose }) => {
             onClick={handleBackgroundClick}
         >
             <div
-                className={`bg-white p-6 rounded-lg shadow-lg max-w-6xl w-full transform transition-transform duration-300 ${isVisible ? "scale-100" : "scale-0"}`}
+                className={`bg-white p-6 rounded-lg shadow-lg max-w-6xl w-full transform transition-transform duration-300 ${isVisible ? "scale-100" : "scale-0"} dark:bg-gray-900`}
                 onClick={(e) => e.stopPropagation()}
             >
                 <button onClick={onClose} className="absolute top-4 right-4 text-2xl">
@@ -109,7 +115,7 @@ export default function Works() {
             {Object.entries(myworks).map(([key, work], index) => (
                 <div
                     key={index}
-                    className="border border-gray-200 rounded-lg p-4 cursor-pointer hover:bg-gray-100 transition duration-300"
+                    className="border border-gray-200 rounded-lg p-4 cursor-pointer hover:bg-gray-100 transition duration-300 dark:border-gray-800 dark:hover:bg-gray-800"
                     onClick={() => handleWorkClick(work)}
                 >
                     <div className="flex items-center">

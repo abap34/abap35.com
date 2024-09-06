@@ -1,15 +1,15 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Header from './components/Header'
-import Footer from './components/Footer'
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import About from './components/About';
-import Works from './components/Works';
 import Education from './components/Education';
+import Footer from './components/Footer';
+import Header from './components/Header';
+import Works from './components/Works';
 
 function App() {
   return (
     <Router>
-      <div className="bg-white text-gray-800 font-mono min-w-full">
+      <div className="bg-white text-gray-800 font-mono min-w-full dark:bg-gray-900 dark:text-gray-200">
         <Header />
 
         <Routes>
@@ -18,9 +18,11 @@ function App() {
           <Route path="/Works" element={<Works />} />
         </Routes>
 
+
+        <Footer />
       </div>
 
-      <Footer />
+
 
     </Router>
   );
