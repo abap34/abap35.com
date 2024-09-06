@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 export default function Header() {
   return (
     <header className="border-b border-gray-200 py-4">
+      <title>abap34.com</title>
       <div className="container mx-auto px-4">
         <nav className="flex justify-between items-center">
           <Link to="/" className="text-2xl font-bold">
