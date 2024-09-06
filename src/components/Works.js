@@ -106,7 +106,7 @@ export default function Works() {
                         <p className="text-sm text-gray-600">{work.period}</p>
                     </div>
                     {work.repo && <GithubLink repo={work.repo} />}
-                    <MarkdownContent content={work.desc} />
+                    <MarkdownContent content={work.short_desc} />
                     <Tags tags={work.tags} />
                 </div>
             ))}
