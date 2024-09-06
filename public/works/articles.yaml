@@ -2,7 +2,7 @@ juliatokyo11:
   title: "JuliaTokyo #11 トーク: Julia と歩く自動微分"
   img: works/img/juliatokyo11.png
   repo: 
-  short_desc: "2024年2月に開催された JuliaTokyo #11 で発表した、 自動微分に関する資料です。"
+  short_desc: "2024年2月に開催された JuliaTokyo #11 で発表した、 自動微分に関する資料"
   desc: |
     自動微分は、機械学習や連続最適化のソフトウェア的基盤になる技術です。
 
@@ -20,12 +20,32 @@ juliatokyo11:
   period: 2024
   relatedlinks:
     - https://speakerdeck.com/abap34/julia-tokyo-number-11-toku-juliadebu-kuzi-dong-wei-fen
+
+
+medCon:
+  title: medCon2021-1st-place-solution
+  img: /works/img/medcon.png
+  repo: abap34/medCon2021-1st-place-solution
+  short_desc: 全国医療AIコンテスト 2021 の 1位解法
+  desc: | 
+    全国医療AIコンテスト 2021 で優勝したときの solution です。
+    
+    このコンペは、第 85 回日本循環器学会学術集会で開催されたコンペで、心電図と患者情報から心筋梗塞を発見する、というコンペでした。
+
+    工夫した CV で他の参加者と比較してかなり信頼できる実験が行えたこと、比較的強力なモデルを組めたことで優勝することができました。
+  tags:
+    - 機械学習
+    - 深層学習
+    - Kaggle
+  period: 2021
+  relatedlinks:
+    - https://docs.google.com/presentation/d/1zEko7m5alvMbFL09ImxFmKA8heCwzVzMXy1fQay__lM/edit#slide=id.gcadca11317_4_47
   
 parallelprng:
   title: "並列化時代の乱数生成"
   img: works/img/parallelprng.png
   repo: 
-  short_desc: 
+  short_desc: 擬似乱数生成と並列処理についての資料
   desc: |
     擬似乱数生成は、数値計算・機械学習において欠かせない存在です。
     また、現代においてはこれらの計算を並列化によって高速化することもまた重要です。
@@ -46,3 +66,23 @@ parallelprng:
   period: 2024
   relatedlinks:
     - https://speakerdeck.com/abap34/bing-lie-hua-shi-dai-noluan-shu-sheng-cheng
+
+
+blog:
+  title: "ブログ"
+  img: works/img/blog.png
+  repo: abap34/my-site
+  short_desc: "このサイトのブログ"
+  desc: |
+    [このサイトのブログ](https://www.abap34.com/posts.html) に、多くの技術記事を投稿しています。
+
+    
+    プログラム・数学関連の記事を中心に書いています。
+  tags:
+    - ブログ
+    - 技術記事
+    - プログラミング
+    - 数学
+  period: 2023 ~
+  relatedlinks:
+    - https://www.abap34.com/posts.html

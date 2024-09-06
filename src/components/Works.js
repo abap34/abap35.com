@@ -33,8 +33,11 @@ const Tags = ({ tags }) => (
 );
 
 const MarkdownContent = ({ content }) => (
+
     <p className="text-sm text-gray-600 whitespace-pre-wrap my-2 dark:text-gray-200">
-        <ReactMarkdown>{content}</ReactMarkdown>
+        <ReactMarkdown components={{ a: ({ node, ...props }) => <a {...props} className="text-blue-600 hover:underline" /> }}>
+            {content}
+        </ReactMarkdown>
     </p>
 );
 
@@ -92,10 +95,10 @@ const Modal = ({ work, onClose }) => {
     );
 };
 
-export default function Works({ title, path }) {
+export default function Works({ title, path, defaultVisibleCount }) {
     const [myworks, setWorks] = useState([]);
     const [selectedWork, setSelectedWork] = useState(null);
-    const [visibleCount, setVisibleCount] = useState(3); 
+    const [visibleCount, setVisibleCount] = useState(defaultVisibleCount);
     const [showAll, setShowAll] = useState(false); 
 
     useEffect(() => {

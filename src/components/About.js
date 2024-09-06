@@ -52,8 +52,8 @@ export default function About() {
             </div>
 
             <Education />
-            <Works title="Projects (Click to see datails)" path="/works/works.yaml" />
-            <Works title="Articles (Click to see datails)" path="/works/articles.yaml" />
+            <Works title="Projects (Click to see datails)" path="/works/works.yaml" defaultVisibleCount={3} />
+            <Works title="Articles (Click to see datails)" path="/works/articles.yaml" defaultVisibleCount={2} />
 
         </main>
     );
