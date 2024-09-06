@@ -3,7 +3,7 @@ import { FaGithub, FaLink, FaTag } from "react-icons/fa";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import ReactMarkdown from "react-markdown";
 import yaml from "yaml";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
+
 
 const GithubLink = ({ repo }) => (
     <div className="flex items-center my-2">
@@ -60,7 +60,7 @@ const Modal = ({ work, onClose }) => {
             onClick={handleBackgroundClick}
         >
             <div
-                className={`bg-white p-6 rounded-lg shadow-lg max-w-6xl w-full transform transition-transform duration-300 ${isVisible ? "scale-100" : "scale-0"} dark:bg-gray-900`}
+                className={`bg-white p-6 rounded-lg shadow-lg p-4 m-4 transform transition-transform duration-300 ${isVisible ? "scale-100" : "scale-0"} dark:bg-gray-900 overflow-y-auto`}
                 onClick={(e) => e.stopPropagation()}
             >
                 <button onClick={onClose} className="absolute top-4 right-4 text-2xl">
