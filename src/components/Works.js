@@ -127,7 +127,7 @@ export default function Works({ title, path, defaultVisibleCount }) {
     };
 
     return (
-        <div className="space-y-4 px-4 py-8 mx-auto">
+        <div className="space-y-4 px-4 py-8 mx-auto break-all">
             <h2 className="text-2xl font-bold"> {title} </h2>
             {Object.entries(myworks).slice(0, visibleCount).map(([index, work]) => (
                 <div
