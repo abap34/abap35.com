@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FaGithub, FaTag, FaLink } from "react-icons/fa";
+import { FaGithub, FaLink, FaTag } from "react-icons/fa";
 import ReactMarkdown from "react-markdown";
 import yaml from "yaml";
 
@@ -29,6 +29,7 @@ const MarkdownContent = ({ content }) => (
         <ReactMarkdown>{content}</ReactMarkdown>
     </p>
 );
+
 
 // クリックしたら表示されるモーダル
 const Modal = ({ work, onClose }) => {
@@ -111,14 +112,17 @@ export default function Works() {
                     className="border border-gray-200 rounded-lg p-4 cursor-pointer hover:bg-gray-100 transition duration-300"
                     onClick={() => handleWorkClick(work)}
                 >
-                    <div className="flex justify-between items-center">
-                        <h3 className="text-lg font-semibold">{work.title}</h3>
-                        <p className="text-sm text-gray-600">{work.period}</p>
-                    </div>
-                    {work.repo && <GithubLink repo={work.repo} />}
-                    <MarkdownContent content={work.short_desc} />
-                    <Tags tags={work.tags} />
+                    <div className="flex items-center">
+                        <img src={work.img} alt={work.title} className="hidden md:block w-1/5 h-auto rounded-lg p-4" />
+                        <div>
 
+                            <h3 className="text-lg font-semibold">{work.title}</h3>
+                            <p className="text-sm text-gray-600">{work.period}</p>
+                            {work.repo && <GithubLink repo={work.repo} />}
+                            <MarkdownContent content={work.short_desc} />
+                            <Tags tags={work.tags} />
+                        </div>
+                    </div>
                 </div>
             ))}
 
