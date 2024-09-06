@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { FaGithub, FaLink, FaTag } from "react-icons/fa";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import ReactMarkdown from "react-markdown";
 import yaml from "yaml";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 const GithubLink = ({ repo }) => (
     <div className="flex items-center my-2">
@@ -91,8 +93,10 @@ const Modal = ({ work, onClose }) => {
 };
 
 export default function Works() {
-    const [myworks, setWorks] = useState({});
+    const [myworks, setWorks] = useState([]);
     const [selectedWork, setSelectedWork] = useState(null);
+    const [visibleCount, setVisibleCount] = useState(3); 
+    const [showAll, setShowAll] = useState(false); 
 
     useEffect(() => {
         fetch("/works/works.yaml")
@@ -109,19 +113,28 @@ export default function Works() {
         setSelectedWork(null);
     };
 
+    const loadMoreWorks = () => {
+        setVisibleCount(myworks.length);
+        setShowAll(true);
+    };
+
+    const closeMoreWorks = () => {
+        setVisibleCount(3);
+        setShowAll(false);
+    };
+
     return (
         <div className="space-y-4 px-4 py-8 mx-auto">
-            <h2 className="text-2xl font-bold">Projects (click to see details)</h2>
-            {Object.entries(myworks).map(([key, work], index) => (
+            <h2 className="text-2xl font-bold">Projects and Articles (click to see details)</h2>
+            {Object.entries(myworks).slice(0, visibleCount).map(([index, work]) => (
                 <div
                     key={index}
-                    className="border border-gray-200 rounded-lg p-4 cursor-pointer hover:bg-gray-100 transition duration-300 dark:border-gray-800 dark:hover:bg-gray-800"
+                    className="border border-gray-200 rounded-lg p-4 cursor-pointer hover:bg-gray-100 transition duration-300 dark:border-gray-800 dark:hover:bg-gray-800 dark:border-4"
                     onClick={() => handleWorkClick(work)}
                 >
                     <div className="flex items-center">
                         <img src={work.img} alt={work.title} className="hidden md:block w-1/5 h-auto rounded-lg p-4" />
                         <div>
-
                             <h3 className="text-lg font-semibold">{work.title}</h3>
                             <p className="text-sm text-gray-600">{work.period}</p>
                             {work.repo && <GithubLink repo={work.repo} />}
@@ -131,6 +144,24 @@ export default function Works() {
                     </div>
                 </div>
             ))}
+
+            {!showAll ? (
+                <button
+                    onClick={loadMoreWorks}
+                    className="w-full mt-4 px-4 py-2 bg-blue-400 text-white rounded hover:bg-blue-600 transition"
+                >
+                    もっと見る
+                    <IoIosArrowDown className="text-xl inline" />
+                </button>
+            ) : (
+                <button
+                    onClick={closeMoreWorks}
+                    className="w-full mt-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition"
+                >
+                    閉じる
+                    <IoIosArrowUp className="text-xl inline" />
+                </button>
+            )}
 
             {selectedWork && <Modal work={selectedWork} onClose={handleCloseModal} />}
         </div>
