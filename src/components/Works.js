@@ -63,7 +63,7 @@ const Modal = ({ work, onClose }) => {
             onClick={handleBackgroundClick}
         >
             <div
-                className={`bg-white p-2 rounded-lg shadow-lg ransform transition-transform duration-300 ${isVisible ? "scale-100" : "scale-0"} dark:bg-gray-900`}
+                className={`bg-white p-4 m-4 rounded-lg shadow-lg ransform transition-transform duration-300 ${isVisible ? "scale-100" : "scale-0"} dark:bg-gray-900`}
                 onClick={(e) => e.stopPropagation()}
             >
                 <button onClick={onClose} className="absolute top-4 right-4 text-2xl">
