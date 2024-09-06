@@ -2,12 +2,14 @@ JITrench.jl:
   title: JITrench.jl
   img: /works/img/jitrench.png
   repo: abap34/JITrench.jl
-  short_desc: JITrench.jl は, Julia言語製の自動微分ライブラリ・深層学習フレームワークです。
+  short_desc: JITrench.jl は Julia言語製の自動微分ライブラリ・深層学習フレームワークです。
   desc: |
-    JITrench.jl は, Julia言語製の自動微分ライブラリ・深層学習フレームワークです。
-    深層学習フレームワークの動作原理に興味をもち,フルクスラッチで実装しました。
-    Define-by-Run, Explicitなパラメータ管理など, 現代的な深層学習フレームワークの基本的な機能を提供しています。
-    また,量子化や計算グラフの最適化など,さまざまなアルゴリズムをこのフレームワーク上で実装しました。
+    JITrench.jl は Julia言語製の自動微分ライブラリ・深層学習フレームワークです。
+
+    深層学習フレームワークの動作原理に興味をもち、フルクスラッチで実装しました。
+    Define-by-Run、 Explicitなパラメータ管理など、 現代的な深層学習フレームワークの特徴を持っています。
+    
+    また、量子化や計算グラフの最適化など、さまざまなアルゴリズムが実装されています。
   lang:
     - Julia
   tags:
@@ -16,6 +18,8 @@ JITrench.jl:
     - 深層学習
     - OSS
   period: 2021 ~ 2023
+  relatedlinks:
+    - https://www.abap34.com/posts/jitrench.html
   
 almo: 
   title: almo
@@ -30,16 +34,49 @@ almo:
   short_desc: almo は C++・Python製の拡張 Markdownパーサ・静的サイトジェネレータです。
   desc: |
     almo は C++・Python製の拡張 Markdownパーサ・静的サイトジェネレータです。
-    Markdownファイルをパースし, HTMLファイルに変換します。
-    パーサはパフォーマンスを重視して C++ で実装されていますが,Python向けのバインディングも提供しており,Pythonからも利用・拡張が可能です。 
-    almo のもっとも特徴的な機能として, PyOdide を利用してブラウザ上で Pythonファイルの実行・プロットができるというものがあります。例えば機械学習や数値計算,アルゴリズムなどに関心がある人にとって便利な執筆環境を提供することを目指しています。
+
+    Markdownファイルをパースし、 HTMLファイルに変換します。
+    
+    パーサ本体はパフォーマンスを重視して C++ で実装されていますが、Python向けのバインディングも提供しており、Pythonからも利用・拡張が可能です。 
+    almo のもっとも特徴的な機能として、 WebAssembly を利用してブラウザ上で Pythonファイルの実行・プロットができるというものがあります。
+    
+    最終的には、機械学習や数値計算、アルゴリズムなどに関心がある人にとって便利な執筆環境を提供することを目指していて、 Visual Studio Code の拡張機能や Jupyter Notebook からの変換なども実装されています。
+    
     このサイトのブログもalmo によって作られています.
+
+    チームで開発していて、主にプロジェクト全体の設計・実装を担当しています。
   tags:
     - C++
     - Python
     - パーサ
     - OSS
   period: 2023 ~
+
+    
+
+Q_Q:
+  title: Q_Q
+  img: /works/img/q_q.png
+  short_desc: SNS内の質問を収集・回答するシステムです。
+  desc: |
+    Q_Q は、 質問収集・回答システムです。
+    SNS 内で発生した質問とその回答を集約したページを作成するとともに、類似質問をサジェストすることによって回答の負担を軽減します。
+    サークルメンバーとハッカソンで開発したもので、主に類似質問のサジェストなどの実装を担当しました。
+  lang:
+    - Python
+    - Streamlit
+  tags:
+    - Python
+    - Streamlit
+    - Web
+    - 機械学習
+    - 自然言語処理
+  period: 2024
+  relatedlinks:
+    - https://www.canva.com/design/DAFmIYJAcZ0/q8OUe14zuF-7xBIBPzOaEg/edit
+
+
+
 
 Minia.jl:
   title: Minia.jl
@@ -48,7 +85,7 @@ Minia.jl:
   short_desc: Minia.jl は Julia 製の言語処理系です。
   desc: |
     Minia.jl は Julia 製の言語処理系です。
-    PEG パーサを利用してパースを行い, Julia の AST にトランスパイルして動作します。
+    PEG パーサを利用してパースを行い、 Julia の AST にトランスパイルして動作します。
   lang: 
     - Julia
   relatedlinks:
@@ -66,9 +103,9 @@ TinyPEG.jl:
   title: TinyPEG.jl
   img: /works/img/tinypeg.gif
   repo: abap34/TinyPEG.jl
-  short_desc: PEGパーサジェネレータの原理と実装に興味を持って実装した PEG パーサジェネレータです。
+  short_desc: PEG パーサジェネレータです。
   desc: |
-    PEGパーサジェネレータの原理と実装に興味を持って実装した PEG パーサジェネレータです。
+    PEGパーサジェネレータです。 
   lang:
     - Julia
   tags:
@@ -103,10 +140,10 @@ DacQ-v2:
   title: DacQ-v2
   img: /works/img/dacq.png
   repo: abap34/DacQ-v2
-  short_desc: DacQ-v2 は, サークルでデータ分析コンペを開催するために開発したStreamlit で作ったデータ分析コンペティションのプラットフォームです。
+  short_desc: DacQ-v2 は、 サークルでデータ分析コンペを開催するために開発したStreamlit で作ったデータ分析コンペティションのプラットフォームです。
   desc: |
-    DacQ-v2 は, サークルでデータ分析コンペを開催するために開発したStreamlit製のデータ分析コンペティションプラットフォームです。
-    チーム戦や Jupyter Notebookベースのディスカッション機能など, 基本的なデータ分析コンペの機能が揃っています。
+    DacQ-v2 は、 サークルでデータ分析コンペを開催するために開発したStreamlit製のデータ分析コンペティションプラットフォームです。
+    チーム戦や Jupyter Notebookベースのディスカッション機能など、 基本的なデータ分析コンペの機能が揃っています。
   lang:
     - Python
     - Streamlit
@@ -117,6 +154,8 @@ DacQ-v2:
     - Web
     - mariaDB
   period: 2024
+  relatedlinks:
+    - https://www.abap34.com/posts/dacq.html
   
 ml-lecture-judge:
   title: ml-lecture-judge
@@ -126,7 +165,7 @@ ml-lecture-judge:
   desc: |
     オンラインジャッジシステムです。
     機械学習の講義で利用することを想定して開発しました。
-    フロントは React,バックエンドは FastAPI で実装しています。
+    フロントは React、バックエンドは FastAPI で実装しています。
   lang:
     - Python
     - JavaScript
@@ -134,25 +173,3 @@ ml-lecture-judge:
     - React
     - FastAPI
     - mariaDB
-    
-
-Q_Q:
-  title: Q_Q
-  img: /works/img/q_q.png
-  short_desc: 質問収集・回答システムです。
-  desc: |
-    Q_Q は, 質問収集・回答システムです。
-    SNS 内で発生した質問とその回答を集約したページを作成するとともに、類似質問をサジェストすることによって回答の負担を軽減します。
-    サークルメンバーとハッカソンで開発したもので、主に類似質問のサジェストなどの実装を担当しました。
-  lang:
-    - Python
-    - Streamlit
-  tags:
-    - Python
-    - Streamlit
-    - Web
-  period: 2024
-  relatedlinks:
-    - https://www.canva.com/design/DAFmIYJAcZ0/q8OUe14zuF-7xBIBPzOaEg/edit
-
-
