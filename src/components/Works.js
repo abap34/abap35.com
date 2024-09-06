@@ -33,7 +33,7 @@ const Tags = ({ tags }) => (
 );
 
 const MarkdownContent = ({ content }) => (
-    <p className="text-sm text-gray-600 whitespace-pre-wrap my-2 dark:text-gray-400">
+    <p className="text-sm text-gray-600 whitespace-pre-wrap my-2 dark:text-gray-200">
         <ReactMarkdown>{content}</ReactMarkdown>
     </p>
 );
@@ -92,14 +92,14 @@ const Modal = ({ work, onClose }) => {
     );
 };
 
-export default function Works() {
+export default function Works({ title, path }) {
     const [myworks, setWorks] = useState([]);
     const [selectedWork, setSelectedWork] = useState(null);
     const [visibleCount, setVisibleCount] = useState(3); 
     const [showAll, setShowAll] = useState(false); 
 
     useEffect(() => {
-        fetch("/works/works.yaml")
+        fetch(path)
             .then((response) => response.text())
             .then((text) => yaml.parse(text))
             .then(setWorks);
@@ -125,7 +125,7 @@ export default function Works() {
 
     return (
         <div className="space-y-4 px-4 py-8 mx-auto">
-            <h2 className="text-2xl font-bold">Projects and Articles (click to see details)</h2>
+            <h2 className="text-2xl font-bold"> {title} </h2>
             {Object.entries(myworks).slice(0, visibleCount).map(([index, work]) => (
                 <div
                     key={index}
