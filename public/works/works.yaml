@@ -135,3 +135,24 @@ ml-lecture-judge:
     - FastAPI
     - mariaDB
     
+
+Q_Q:
+  title: Q_Q
+  img: /works/img/q_q.png
+  short_desc: 質問収集・回答システムです。
+  desc: |
+    Q_Q は, 質問収集・回答システムです。
+    SNS 内で発生した質問とその回答を集約したページを作成するとともに、類似質問をサジェストすることによって回答の負担を軽減します。
+    サークルメンバーとハッカソンで開発したもので、主に類似質問のサジェストなどの実装を担当しました。
+  lang:
+    - Python
+    - Streamlit
+  tags:
+    - Python
+    - Streamlit
+    - Web
+  period: 2024
+  relatedlinks:
+    - https://www.canva.com/design/DAFmIYJAcZ0/q8OUe14zuF-7xBIBPzOaEg/edit
+
+

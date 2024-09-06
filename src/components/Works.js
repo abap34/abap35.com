@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FaGithub, FaTag } from "react-icons/fa";
+import { FaGithub, FaTag, FaLink } from "react-icons/fa";
 import ReactMarkdown from "react-markdown";
 import yaml from "yaml";
 
@@ -63,6 +63,16 @@ const Modal = ({ work, onClose }) => {
                     <div>
                         <h2 className="text-lg font-semibold">{work.title}</h2>
                         <p className="text-sm text-gray-600">{work.period}</p>
+                        {
+                            work.relatedlinks && work.relatedlinks.map((link, index) => (
+                                <div key={index} className="flex items-center my-2">
+                                    <FaLink className="mr-2" />
+                                    <a href={link} target="_blank" rel="noreferrer" className="hover:text-blue-600 transition duration-300 text-sm">
+                                        {link}
+                                    </a>
+                                </div>
+                            ))
+                        }
                         {work.repo && <GithubLink repo={work.repo} />}
                         <MarkdownContent content={work.desc} />
                         <Tags tags={work.tags} />
@@ -108,6 +118,7 @@ export default function Works() {
                     {work.repo && <GithubLink repo={work.repo} />}
                     <MarkdownContent content={work.short_desc} />
                     <Tags tags={work.tags} />
+
                 </div>
             ))}
 
