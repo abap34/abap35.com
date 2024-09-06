@@ -5,7 +5,11 @@ import { FaMoon, FaSun } from 'react-icons/fa';
 
 
 export default function Header() {
-  const [isDark, setIsDark] = useState(true);
+  // Note: OS の設定をまずデフォルトとして使う
+  const isDarkOS = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+
+  const [isDark, setIsDark] = useState(isDarkOS);
 
   useEffect(() => {
     if (isDark) {
