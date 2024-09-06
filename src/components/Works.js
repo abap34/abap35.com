@@ -79,7 +79,7 @@ const Modal = ({ work, onClose }) => {
                             work.relatedlinks && work.relatedlinks.map((link, index) => (
                                 <div key={index} className="flex items-center my-2">
                                     <FaLink className="mr-2" />
-                                    <a href={link} target="_blank" rel="noreferrer" className="hover:text-blue-600 transition duration-300 text-sm break-all">
+                                    <a href={link} target="_blank" rel="noreferrer" className="hover:text-blue-600 transition duration-300 text-sm break-all text-blue-600">
                                         {link}
                                     </a>
                                 </div>
