@@ -2,7 +2,8 @@ import React from 'react';
 import { FaGithub, FaLink, FaTwitter } from 'react-icons/fa';
 import Education from './Education';
 import Works from './Works';
-
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
 
 export default function About() {
     return (
@@ -16,14 +17,23 @@ export default function About() {
 
 
                         <p
-                            className="py-2 text-gray-800 dark:text-gray-200"
+                            className="py-2 text-gray-800 dark:text-gray-200 pb-4"
                         > 東京工業大学 情報理工学院情報工学系 B3 </p>
 
 
 
-                        計算機を使って人間にできなかったようなことができるようになること、  <br></br>
-                        もしくは人間しかできなかったようなことが機械にできるようになることが好きです。  <br></br>
-                        それを実現する技術として、 とくに機械学習に興味を持っています。
+
+                        計算機を使うことで、
+                        <ul className="list-disc list-inside text-gray-800 dark:text-gray-200 pb-4">
+                            <li> 人間しかできなかったようなことが、機械もできるようになること </li>
+                            <li> 人間にできなかったことが、機会もできるようになること </li>
+                        </ul>
+
+                        が好きです。
+
+                        <br></br>
+
+                        それを実現する技術として、とくに機械学習に興味を持っています。
 
 
 
@@ -51,9 +61,24 @@ export default function About() {
                 </div>
             </div>
 
-            <Education />
-            <Works title="Projects (Click to see datails)" path="/works/works.yaml" defaultVisibleCount={3} />
-            <Works title="Articles (Click to see datails)" path="/works/articles.yaml" defaultVisibleCount={2} />
+            
+            <Tabs className="mt-8">
+                <TabList>
+                    <Tab>Education</Tab>
+                    <Tab>Projects</Tab>
+                    <Tab>Articles</Tab>
+                </TabList>
+
+                <TabPanel>
+                    <Education />
+                </TabPanel>
+                <TabPanel>
+                    <Works title="Projects (Click to see datails)" path="/works/works.yaml" defaultVisibleCount={3} />
+                </TabPanel>
+                <TabPanel>
+                    <Works title="Articles (Click to see datails)" path="/works/articles.yaml" defaultVisibleCount={2} />
+                </TabPanel>
+            </Tabs>
 
         </main>
     );
