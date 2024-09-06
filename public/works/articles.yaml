@@ -79,10 +79,22 @@ blog:
     
     プログラム・数学関連の記事を中心に書いています。
   tags:
-    - ブログ
-    - 技術記事
-    - プログラミング
-    - 数学
+   - 数学
   period: 2023 ~
   relatedlinks:
     - https://www.abap34.com/posts.html
+
+blog2:
+  title: ブログ (サークル)
+  img: works/img/mllec.png
+  repo:
+  short_desc: "大学のサークルのブログ"
+  desc: |
+    [東京工業大学デジタル創作同好会 traP](https://trap.jp) のブログに、いくつかの記事を投稿しています。
+
+    機械学習に取り組むチームとアルゴリズムに取り組むチームに所属しているため、それに関連する記事を中心に書いています。
+  relatedlinks:
+    - https://trap.jp/author/abap34/
+  tags:
+    - Kaggle
+    - アルゴリズム
