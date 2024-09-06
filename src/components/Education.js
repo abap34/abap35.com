@@ -2,7 +2,7 @@ function EachEducation(props) {
     return (
         <div className="border-l-2 border-gray-200 p-4">
             <h3 className="text-lg font-semibold">{props.school}</h3>
-            <p className="text-sm text-gray-600">{props.period}</p>
+            <p className="text-sm text-gray-600 dark:text-gray-400">{props.period}</p>
         </div>
     );
 }

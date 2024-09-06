@@ -6,7 +6,7 @@ import { FaMoon, FaSun } from 'react-icons/fa';
 
 
 export default function Header() {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
     if (isDark) {
@@ -19,7 +19,7 @@ export default function Header() {
 
 
   return (
-    <header className="border-b border-gray-200 py-4">
+    <header className="border-b border-gray-200 py-4 dark:border-gray-800">
       <div className="container mx-auto px-4">
         <nav className="flex justify-between items-center">
 
