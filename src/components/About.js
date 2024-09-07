@@ -82,18 +82,18 @@ export default function About() {
                 </div>
                 <div className="ml-8 space-y-4 text-gray-700 dark:text-gray-300">
                     <p>
-                        ここ最近の細かい興味としては、 (最終更新: 2024年9月)
+                        最近は、 (最終更新: 2024年9月)
                     </p>
 
 
                     <ul className="list-disc list-inside space-y-2 p-2">
                         <li>連続最適化の理論 (確率的最適化の周辺)  </li>
-                        <li>言語処理系と深く統合された機械学習周りのソフトウェア的な基盤 (例えば、 Julia言語の自動微分ライブラリの周辺) </li>
+                        <li>言語処理系と深く統合された、機械学習周りのソフトウェア的な基盤 (例えば、 Julia言語の自動微分ライブラリの周辺) </li>
                         <li>OS まわり </li>
                     </ul>
 
                     <p>
-                        に興味を持って勉強中です。
+                        にとくに興味を持って勉強中です。
                     </p>
 
                 </div>
