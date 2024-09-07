@@ -30,7 +30,6 @@ almo:
     - Python
   relatedlinks:
     - https://www.abap34.com/posts/footnote_implement.html
-    - https://www.abap34.com/posts/pybind11.html
   short_desc: C++・Python製の拡張 Markdownパーサ・静的サイトジェネレータ
   desc: |
     almo は 拡張 Markdownパーサ・静的サイトジェネレータです。
