@@ -1,4 +1,4 @@
-import { Book, Code, GraduationCap, Lightbulb } from "lucide-react"
+import { Book, Code, Cpu, GraduationCap, Lightbulb } from "lucide-react"
 
 export default function About() {
     return (
@@ -46,12 +46,53 @@ export default function About() {
             <section className="space-y-4">
                 <div className="flex items-center space-x-2 text-xl font-semibold">
                     <Code className="w-6 h-6 text-green-500" />
-                    <h2>よく使う技術</h2>
+                    <h2>技術スタック</h2>
+                </div>
+
+                <div className="ml-8 space-y-4 text-gray-700 dark:text-gray-300">
+                    <div className="space-y-2 justify-center">
+                        <p>
+                            主には、Python / Julia / C++ あたりの言語を使うことが多いです。
+                            <br></br>
+                            ただ、どのプログラミング言語・技術も適している場面があると思っているので、
+                            使う言語やライブラリにはあまりこだわりはなく、必要ならその場で使う勉強して使うタイプです。
+                        </p>
+                    </div>
+
+                    <div className="space-y-2 ">
+                        <img
+                            src="https://github-readme-stats-git-featuredisplayb-a97b36-abap34s-projects.vercel.app/api/top-langs?username=abap34&hide=jupyter%20notebook,HTML,Rich%20Text%20Format,CSS,SCSS&stats_format=bytes_long&langs_count=10&count_private=true&layout=compact&disable_animations=true&card_width=400"
+                            alt="Most Used Languages"
+                            className="mx-auto"
+                        />
+                        <p className="text-center text-sm text-gray-600 dark:text-gray-400">
+                            (※ GitHub で公開しているソースコードの言語の割合)
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+
+
+            <section className="space-y-4">
+                <div className="flex items-center space-x-2 text-xl font-semibold">
+                    <Cpu className="w-6 h-6 text-red-500" />
+                    <h2>より細かい興味</h2>
                 </div>
                 <div className="ml-8 space-y-4 text-gray-700 dark:text-gray-300">
                     <p>
-                        あたらしいプログラミング言語を使うのにあまり抵抗がないタイプですが、
-                        第一の選択肢としてとるプログラミング言語では Python / Julia / C++ あたりを使うことが多いです。
+                        ここ最近の細かい興味としては、 (最終更新: 2024年9月)
+                    </p>
+
+
+                    <ul className="list-disc list-inside space-y-2 p-2">
+                        <li>連続最適化の理論 (確率的最適化の周辺)  </li>
+                        <li>言語処理系と深く統合された機械学習周りのソフトウェア的な基盤 (例えば、 Julia言語の自動微分ライブラリの周辺) </li>
+                        <li>OS まわり </li>
+                    </ul>
+
+                    <p>
+                        に興味を持って勉強中です。
                     </p>
 
                 </div>
