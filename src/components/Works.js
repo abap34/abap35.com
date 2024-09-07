@@ -106,7 +106,8 @@ export default function Works({ title, path, defaultVisibleCount }) {
             .then((response) => response.text())
             .then((text) => yaml.parse(text))
             .then(setWorks);
-    }, []);
+    }, 
+    [path]);
 
     const handleWorkClick = (work) => {
         setSelectedWork(work);
@@ -122,17 +123,18 @@ export default function Works({ title, path, defaultVisibleCount }) {
     };
 
     const closeMoreWorks = () => {
-        setVisibleCount(3);
+        setVisibleCount(defaultVisibleCount);
         setShowAll(false);
     };
 
     return (
-        <div className="space-y-4 px-4 py-8 mx-auto break-all">
-            <h2 className="text-2xl font-bold"> {title} </h2>
+        <main className="container mx-auto px-4 py-8 break-all">
+            <h1 className="text-4xl font-bold text-blue-600 dark:text-blue-400 dark:text-opacity-80 dark:font-bold"> {title} </h1>
+            <h2 className="text-2xl font-bold"> (クリックで詳細表示) </h2>
             {Object.entries(myworks).slice(0, visibleCount).map(([index, work]) => (
                 <div
                     key={index}
-                    className="border border-gray-200 rounded-lg p-4 cursor-pointer hover:bg-gray-100 transition duration-300 dark:border-gray-800 dark:hover:bg-gray-800 dark:border-4"
+                    className="m-4 border border-gray-200 rounded-lg p-4 cursor-pointer hover:bg-gray-100 transition duration-300 dark:border-gray-800 dark:hover:bg-gray-800 dark:border-4"
                     onClick={() => handleWorkClick(work)}
                 >
                     <div className="flex items-center">
@@ -167,6 +169,6 @@ export default function Works({ title, path, defaultVisibleCount }) {
             )}
 
             {selectedWork && <Modal work={selectedWork} onClose={handleCloseModal} />}
-        </div>
+        </main>
     );
 }
