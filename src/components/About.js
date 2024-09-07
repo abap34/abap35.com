@@ -1,4 +1,4 @@
-import { Book, Code, Cpu, GraduationCap, Lightbulb } from "lucide-react"
+import { Book, Code, Cpu, GraduationCap, Lightbulb, Mail, Pen } from 'lucide-react';
 
 export default function About() {
     return (
@@ -25,8 +25,7 @@ export default function About() {
                     </ul>
                     <p>ができるようになることが好きです。</p>
                     <p>それを実現する技術として、とくに機械学習に興味を持っています。</p>
-
-                    <p> 理論も実装もできるエンジニア・研究者を目指しています。</p>
+                    <p> 理論も実装もできるエンジニア・研究者が目標です。</p>
 
                 </div>
             </section>
@@ -67,7 +66,7 @@ export default function About() {
                             className="mx-auto"
                         />
                         <p className="text-center text-sm text-gray-600 dark:text-gray-400">
-                            (※ GitHub で公開しているソースコードの言語の割合)
+                            (※ GitHub で公開しているソースコードの割合)
                         </p>
                     </div>
                 </div>
@@ -100,6 +99,33 @@ export default function About() {
             </section>
 
 
+            <section className="space-y-4">
+                <div className="flex items-center space-x-2 text-xl font-semibold">
+                    <Pen className="w-6 h-6 text-blue-500" />
+                    <h2>その他</h2>
+                </div>
+
+                <div className="ml-8 space-y-4 text-gray-700 dark:text-gray-300">
+                    <p>
+                        <ul className="list-disc list-inside space-y-2 p-2">
+                            <li> Works にあるもの以外にも、さまざまなソフトウェア・実装を GitHub で公開しているので、ぜひみてください。</li>
+
+                        </ul>
+                    </p>
+                </div>
+            </section>
+
+            <section className="space-y-4">
+                <div className="flex items-center space-x-2 text-xl font-semibold">
+                    <Mail className="w-6 h-6 text-blue-500" />
+                    <h2> Contact </h2>
+                </div>
+                <p className="text-gray-700 dark:text-gray-300 ml-8">
+                    <p>
+                        abap0002 [at] gmail.com
+                    </p>
+                </p>
+            </section>
         </div>
     )
 }
