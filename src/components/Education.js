@@ -25,15 +25,14 @@ function EachWork(props) {
 
 export default function Education() {
     return (
-        <div className="space-y-4 px-4 py-8 mx-auto">
-            <h2 className="text-2xl font-bold">Education</h2>
+        <main className="container mx-auto px-4 py-8">
+            <h1 className="text-4xl font-bold text-blue-600 dark:text-blue-400 dark:text-opacity-80 dark:font-bold pb-4"> Education </h1>
             <EachEducation school="東京工業大学 情報理工学院" period="2022/04 ~" />
             <EachEducation school="東京工業大学 情報理工学院 情報工学系" period="2023/04 ~" />
 
             <h2 className="text-2xl font-bold">Work Experience</h2>
             <EachWork company="DENSO IT Laboratory" url="https://www.d-itlab.co.jp/" period="2022" worktype="Reserch Internship" project="深層学習を使った研究の実装・評価をしていました。" />
             <EachWork company="株式会社サイカ" url="https://xica.net/" period="2023" worktype="SWE Internship" project="Python 製の既存の分析基盤を Julia で書き直して高速化するプロジェクトをしていました。" />
-        </div>
-
+        </main>
     );
 }
