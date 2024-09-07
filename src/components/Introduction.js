@@ -4,7 +4,7 @@ import { TypeAnimation } from 'react-type-animation';
 
 export default function Component() {
     return (
-        <div className="flex items-center justify-center p-4 transition-colors duration-300 w-full h-screen bg-gray-100 dark:bg-gray-900">
+        <div className="flex items-center justify-center p-4 transition-colors duration-300">
             <motion.div
                 className="bg-white dark:bg-gray-800 rounded-lg shadow-xl overflow-hidden w-full md:w-3/4"
                 initial={{ opacity: 0, y: 50 }}
