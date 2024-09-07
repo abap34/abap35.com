@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import About from './components/About';
+import TopPage from './components/TopPage';
 import Education from './components/Education';
 import Footer from './components/Footer';
 import Header from './components/Header';
@@ -13,7 +13,7 @@ function App() {
         <Header />
 
         <Routes>
-          <Route path="/" element={<About />} />
+          <Route path="/" element={<TopPage />} />
           <Route path="/Education" element={<Education />} />
           <Route path="/Works" element={<Works />} />
         </Routes>
