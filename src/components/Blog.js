@@ -35,7 +35,7 @@ function copyRSS() {
 function BlogTimeline({ posts }) {
     return (
         <div className="container mx-auto px-4 py-8">
-            <div className="relative max-w-3xl mx-auto">
+            <div className="relative lg:max-w-3xl mx-auto md:w-full">
                 <div
                     className="absolute left-4 top-0 h-full w-1 dark:bg-blue-200 bg-blue-400"
                     aria-hidden="true"
@@ -143,13 +143,13 @@ export default function About() {
             </div>
 
 
-            <div className="grid grid-cols-[3fr,2fr] md:grid-cols-[2fr,1fr] gap-8 mt-8">
-                <div className="space-y-8 border border-gray-200 rounded-lg p-4 dark:border-gray-700 overflow-y-scroll">
+            <div className="grid lg:grid-cols-[3fr,2fr] gap-8 md:grid-cols-1">
+                <div className="space-y-8 lg:border border-gray-200 rounded-lg lg:p-4 md:p-2 dark:border-gray-700 overflow-y-scroll">
                     <h2 className="text-2xl font-bold"> Posts Timeline </h2>
                     <BlogTimeline posts={posts} />
                 </div>
 
-                <div className="sticky top-24 hidden  overflow-y-scroll md:block space-y-8 p-4 max-h-[80vh]">
+                <div className="sticky top-24 overflow-y-scroll hidden lg:block space-y-8 p-4 max-h-[80vh]">
                     <h2 className="text-2xl font-bold mb-4 "> Tags </h2>
                     <div className="grid grid-cols-2 gap-2">
                         {allTags.map(([tag, count], index) => (
