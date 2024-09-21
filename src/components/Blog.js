@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FaRss, FaSearch, FaTag } from 'react-icons/fa';
+import { FaRss, FaSearch } from 'react-icons/fa';
 import swal from 'sweetalert2';
 import Tag from './Tag';
 
@@ -124,6 +124,12 @@ export default function About() {
                                 className="w-full h-full px-4 py-2 border border-gray-300 rounded-md pr-10 focus:outline-none focus:ring focus:ring-blue-600 focus:border-blue-600 transition duration-300 placeholder-gray-400 dark:placeholder-gray-500 dark:bg-gray-800"
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
+                                onKeyDown={(e) => {
+                                    if (e.key === 'Enter') {
+                                        window.location.href = `/search?q=${searchQuery}`;
+                                    }
+                                }
+                                }
                             />
                             <button className="absolute right-2 top-2 text-gray-400" onClick={() => window.location.href = `/search?q=${searchQuery}`}>
                                 <FaSearch />
