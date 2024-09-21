@@ -112,7 +112,7 @@ export default function About() {
                     <h1 className="text-4xl font-bold">
                         <span className="text-blue-600">abap34</span>'s Blog
                     </h1>
-                    <button className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded flex items-center space-x-2 transition duration-300 dark:bg-orange-400" onClick={copyRSS}>
+                    <button className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded flex items-center space-x-2 transition duration-300 dark:bg-orange-400 hidden lg:flex"  onClick={copyRSS}>
                         <FaRss className="mr-2" />
                         Copy RSS URL
                     </button>
