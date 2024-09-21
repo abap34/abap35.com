@@ -151,23 +151,6 @@ export default function About() {
                 </div>
 
                 <div className="sticky top-24 hidden  overflow-y-scroll md:block space-y-8 p-4 max-h-[80vh]">
-                    <h2 className="text-2xl font-bold mb-4"> Featured Posts </h2>
-                    <div className="grid grid-cols-2 gap-2">
-                        {/* featured: true なるやつを取得 */}
-                        {posts.filter((post) => post.featured).map((post, index) => (
-                            <a key={index} href
-                                ={post.url} target="_blank" rel="noreferrer" className="border border-gray-200 rounded-lg p-4 hover:border-blue-600 transition duration-300">
-                                <h3 className="text-lg font-semibold">{post.title}</h3>
-                                <p className="text-sm text-gray-600">{post.post_date}</p>
-                            </a>
-                        ))}
-                    </div>
-
-
-
-
-
-
                     <h2 className="text-2xl font-bold mb-4 "> Tags </h2>
                     <div className="grid grid-cols-2 gap-2">
                         {allTags.map(([tag, count], index) => (
