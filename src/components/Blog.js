@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { FaRss, FaSearch, FaTag } from 'react-icons/fa';
 import swal from 'sweetalert2';
+import Tag from './Tag';
 
 
 async function fetchPosts() {
@@ -30,14 +31,6 @@ function copyRSS() {
     });
 }
 
-function Tag({ name, label }) {
-    return (
-        <span className="bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400 px-2 py-1 rounded-lg space-x-1 word-break-all truncate">
-            <FaTag className="inline-block mr-1" />
-            <a href={`/search?tag=${name}`} className="hover:text-blue-600 transition duration-300">{label}</a>
-        </span>
-    );
-}
 
 function BlogTimeline({ posts }) {
     return (
