@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { FaRss, FaSearch } from 'react-icons/fa';
+import { FaRss, FaSearch, FaTag } from 'react-icons/fa';
 import swal from 'sweetalert2';
+
 
 async function fetchPosts() {
     try {
@@ -16,6 +17,8 @@ async function fetchPosts() {
     }
 }
 
+
+
 function copyRSS() {
     navigator.clipboard.writeText('https://www.abap34.com/rss.xml');
     swal.fire({
@@ -27,14 +30,50 @@ function copyRSS() {
     });
 }
 
-function eachPost(post, index) {
+function Tag({ name, label }) {
     return (
-        <a key={index} href={post.url} target="_blank" rel="noreferrer" className="border border-gray-200 rounded-lg p-4 hover:border-blue-600 transition duration-300">
-            <img src={post.thumbnail_url} alt={post.title} className="w-full h-48 object-cover rounded-lg" />
-            <h3 className="text-lg font-semibold mt-2">{post.title}</h3>
-            <p className="text-sm text-gray-600">{post.post_date}</p>
-            <p className="text-sm text-gray-600">{post.content.slice(0, 50)}...</p>
-        </a>
+        <span className="bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400 px-2 py-1 rounded-lg space-x-1 word-break-all truncate">
+            <FaTag className="inline-block mr-1" />
+            <a href={`/search?tag=${name}`} className="hover:text-blue-600 transition duration-300">{label}</a>
+        </span>
+    );
+}
+
+function BlogTimeline({ posts }) {
+    return (
+        <div className="container mx-auto px-4 py-8">
+            <div className="relative max-w-3xl mx-auto">
+                <div
+                    className="absolute left-4 top-0 h-full w-1 dark:bg-blue-200 bg-blue-400"
+                    aria-hidden="true"
+                >
+                </div>
+
+
+                {posts.map((post, index) => (
+                    <div key={index} className="relative space-y-4 pl-12 mb-8">
+                        <p className="text-sm text-gray-600 dark:text-gray-400">
+                            {post.post_date}
+                        </p>
+
+                        <a href={post.url} target="_blank" rel="noreferrer" className="border border-gray-200 rounded-lg p-4 hover:border-blue-600 transition duration-300 block">
+                            <h3 className="text-lg font-semibold mb-4 mt-2">{post.title}</h3>
+
+                            <img src={post.thumbnail_url} alt={post.title} className="w-full h-48 object-cover rounded-lg mb-2" />
+                            <p className="text-sm text-gray-600 mb-2 truncate dark:text-gray-400">{post.content}</p>
+
+                            <div className="flex flex-wrap gap-2">
+                                {post.tags.map((tag, index) => (
+                                    <Tag key={index} name={tag} label={tag} />
+                                ))}
+                            </div>
+
+                        </a>
+                    </div>
+                ))}
+            </div>
+        </div>
+
     );
 }
 
@@ -44,11 +83,33 @@ export default function About() {
     const [posts, setPosts] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
 
+    // タグの一覧. (name => 個数) の map としてもつ
+    const [allTags, setAllTags] = useState([]);
+
     useEffect(() => {
         fetchPosts().then((posts) => {
             setPosts(posts);
         });
     }, []);
+
+    useEffect(() => {
+        const tags = posts.reduce((acc, post) => {
+            post.tags.forEach((tag) => {
+                if (acc[tag]) {
+                    acc[tag] += 1;
+                } else {
+                    acc[tag] = 1;
+                }
+            });
+            return acc;
+        }, {});
+        // 個数でソート
+        const sortedTags = Object.entries(tags).sort((a, b) => b[1] - a[1]);
+        setAllTags(sortedTags);
+    }
+        , [posts]);
+
+
 
 
     return (
@@ -58,7 +119,7 @@ export default function About() {
                     <h1 className="text-4xl font-bold">
                         <span className="text-blue-600">abap34</span>'s Blog
                     </h1>
-                    <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 flex items-center" href="https://www.abap34.com/rss.xml" target="_blank" rel="noreferrer" onClick={copyRSS}>
+                    <button className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded flex items-center space-x-2 transition duration-300 dark:bg-orange-400" onClick={copyRSS}>
                         <FaRss className="mr-2" />
                         Copy RSS URL
                     </button>
@@ -82,14 +143,40 @@ export default function About() {
                 </div>
             </div>
 
-            <section className="mt-16">
-                <h2 className="text-2xl font-bold">All Posts</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-                    {posts.map(eachPost)}
+
+            <div className="grid grid-cols-[3fr,2fr] md:grid-cols-[2fr,1fr] gap-8 mt-8">
+                <div className="space-y-8 border border-gray-200 rounded-lg p-4 dark:border-gray-700 overflow-y-scroll">
+                    <h2 className="text-2xl font-bold"> Posts Timeline </h2>
+                    <BlogTimeline posts={posts} />
                 </div>
-            </section>
+
+                <div className="sticky top-24 hidden  overflow-y-scroll md:block space-y-8 p-4 max-h-[80vh]">
+                    <h2 className="text-2xl font-bold mb-4"> Featured Posts </h2>
+                    <div className="grid grid-cols-2 gap-2">
+                        {/* featured: true なるやつを取得 */}
+                        {posts.filter((post) => post.featured).map((post, index) => (
+                            <a key={index} href
+                                ={post.url} target="_blank" rel="noreferrer" className="border border-gray-200 rounded-lg p-4 hover:border-blue-600 transition duration-300">
+                                <h3 className="text-lg font-semibold">{post.title}</h3>
+                                <p className="text-sm text-gray-600">{post.post_date}</p>
+                            </a>
+                        ))}
+                    </div>
 
 
+
+
+
+
+                    <h2 className="text-2xl font-bold mb-4 "> Tags </h2>
+                    <div className="grid grid-cols-2 gap-2">
+                        {allTags.map(([tag, count], index) => (
+                            <Tag key={index} name={tag} label={`${tag} (${count})`} />
+                        ))}
+
+                    </div>
+                </div>
+            </div>
         </main>
     );
 }
