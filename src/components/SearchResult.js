@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Tag from './Tag';
 
 async function fetchPosts() {
     try {
@@ -16,7 +17,16 @@ async function fetchPosts() {
 
 function getSearchQuery() {
     const params = new URLSearchParams(window.location.search);
-    return params.get('q');
+    if (params.get('q')) {
+        return params.get('q');
+    } else {
+        return '';
+    }
+}
+
+function getSearchTag() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('tag');
 }
 
 function searchPosts(posts, query) {
@@ -24,12 +34,22 @@ function searchPosts(posts, query) {
         return posts;
     }
     return posts.filter((post) => {
-        return post.content.includes(query) || post.title.includes(query);
+        return post.content.toLowerCase().includes(query.toLowerCase());
     });
 }
 
+function searchPostsByTag(posts, tag) {
+    if (!tag) {
+        return posts;
+    }
+    return posts.filter((post) => {
+        return post.tags.includes(tag);
+    });
+}
+
+
 export function Post({ post, query }) {
-    const index = post.content.indexOf(query);
+    const index = post.content.toLowerCase().indexOf(query.toLowerCase());
     const start = Math.max(0, index - 10);
     const end = Math.min(post.content.length, index + query.length + 100);
     const before = post.content.slice(start, index);
@@ -65,14 +85,22 @@ export default function SearchResult() {
     }, []);
 
 
+    const tag = getSearchTag();
     const query = getSearchQuery();
-    const searchedPosts = searchPosts(posts, query);
+
+
+    const searchedPosts = searchPosts(searchPostsByTag(posts, tag), query);
+
 
     return (
         <main className="container mx-auto px-4 py-8 space-y-8">
             <h1 className="text-4xl font-bold">Search Result</h1>
-            <p className="text-gray-600">Search results for "{query}"</p>
-            <div className="text-gray-600">Found {searchedPosts.length} results</div>
+            <div className="text-gray-600 flex items-center space-x-2">
+                <span>Search for:</span>
+                { query && <span className="bg-blue-100 dark:bg-blue-600 text-blue-600 dark:text-gray-100 px-2 py-1 rounded-lg">{query}</span> }
+                { tag && <Tag name={tag} label={tag} /> }
+            </div>
+            <div className="text-gray-600">Found <span className="font-bold">{searchedPosts.length}</span> posts</div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
 
                 {searchedPosts.map((post) => (
