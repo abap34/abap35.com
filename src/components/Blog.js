@@ -1,8 +1,9 @@
+import { ArrowRight, Tags, TrendingUp } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
 import { FaRss } from 'react-icons/fa';
 import swal from 'sweetalert2';
+import SearchBar from './SearchBar';
 import Tag from './Tag';
-import SearchBar from './SearchBar'; 
 
 async function fetchPosts() {
     try {
@@ -31,8 +32,8 @@ function copyRSS() {
 
 function BlogTimeline({ posts }) {
     return (
-        <div className="container mx-auto px-0 py-8">
-            <div className="relative lg:max-w-3xl mx-auto md:w-full">
+        <div className="container mx-a px-2 py-8">
+            <div className="relative  mx-auto md:w-full">
                 <div
                     className="absolute left-4 top-0 h-full w-1 dark:bg-blue-200 bg-blue-200"
                     aria-hidden="true"
@@ -112,13 +113,27 @@ export default function Blog() {
 
             <div className="grid lg:grid-cols-[4fr,1fr] gap-8 md:grid-cols-1 px-0 py-4 lg:px-4">
                 <div className="space-y-8 border-gray-200 rounded-lg lg:p-2 md:p-2 dark:border-gray-700 overflow-y-scroll">
-                    <h2 className="text-2xl font-bold sticky"> Blog Posts </h2>
-                    <BlogTimeline posts={posts} />
+                    <div className="flex items-center space-x-2 text-xl font-semibold">
+                        <TrendingUp className="w-6 h-6 text-green-500" />
+                        <h2 className="text-2xl font-bold"> Recent Posts </h2>
+
+                    </div>
+
+                    <a href="/search" className="text-blue-600 dark:text-blue-400 hover:underline flex items-center space-x-1">
+                        (View All)
+                        <ArrowRight className="w-4 h-4" />
+                    </a>
+
+                    <BlogTimeline posts={posts.slice(0, 10)} />
                 </div>
 
-                <div className="sticky top-24 overflow-y-scroll hidden lg:block space-y-8 max-h-[80vh] border-gray-200 rounded-lg px-8 py-4">
-                    <h2 className="text-2xl font-bold mb-4 "> Tags </h2>
-                    <div className="gap-2 flex flex-wrap dark:border-gray-700 border p-2 rounded-lg">
+                <div className="sticky top-24 overflow-y-scroll hidden lg:block space-y-8 max-h-[80vh] border-gray-200 rounded-lg px-2 py-4">
+                    <div className="flex items-center space-x-2 text-xl font-semibold">
+                        <Tags className="w-6 h-6 text-amber-500" />
+                        <h2 className="text-2xl font-bold"> Tags </h2>
+                    </div>
+
+                    <div className="gap-2 flex flex-wrap dark:border-gray-700 border p-4 rounded-lg">
                         {allTags.map(([tag, count], index) => (
                             <Tag key={index} name={tag} label={`${tag} (${count})`} />
                         ))}
