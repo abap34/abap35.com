@@ -143,10 +143,7 @@ export default function About() {
             </div>
 
 
-            <div className="grid lg:grid-cols-[3fr,2fr] gap-8 md:grid-cols-1 px-8 py-8">
-
-
-
+            <div className="grid lg:grid-cols-[3fr,2fr] gap-8 md:grid-cols-1 px-0 py-8 lg:px-8">
                 <div className="space-y-8 lg:border border-gray-200 rounded-lg lg:p-4 md:p-2 dark:border-gray-700 overflow-y-scroll">
                     <h2 className="text-2xl font-bold sticky"> Blog Posts </h2>
                     <BlogTimeline posts={posts} />
