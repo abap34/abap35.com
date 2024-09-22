@@ -1,12 +1,19 @@
 import React, { useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 
+
+function addSearchQuery(query) {
+    const params = new URLSearchParams(window.location.search);
+    params.append('q', query);
+    window.location.href = `/search?${params.toString()}`;
+}
+
 export default function SearchBar({ placeholder = "Search Blog" }) {
     const [searchQuery, setSearchQuery] = useState('');
 
     const handleSearch = () => {
-        if (searchQuery.trim() !== '') {
-            window.location.href = `/search?q=${encodeURIComponent(searchQuery)}`;
+        if (searchQuery) {
+            addSearchQuery(searchQuery);
         }
     };
 
