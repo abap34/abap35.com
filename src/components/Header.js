@@ -20,7 +20,7 @@ export default function Header() {
   }, [isDark]);
 
   return (
-    <header className="border-b border-gray-200 py-4 dark:border-gray-800 sticky top-0 bg-white dark:bg-gray-900 dark:text-gray-200 z-50">
+    <header className="border-b border-gray-200 py-4 dark:border-gray-800 sticky  bg-white dark:bg-gray-900 dark:text-gray-200 z-50">
       <div className="container mx-auto px-4 flex justify-between items-center">
 
         <div>
