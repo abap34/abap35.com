@@ -31,10 +31,10 @@ function copyRSS() {
 
 function BlogTimeline({ posts }) {
     return (
-        <div className="container mx-auto px-4 py-8">
+        <div className="container mx-auto px-0 py-8">
             <div className="relative lg:max-w-3xl mx-auto md:w-full">
                 <div
-                    className="absolute left-4 top-0 h-full w-1 dark:bg-blue-200 bg-blue-400"
+                    className="absolute left-4 top-0 h-full w-1 dark:bg-blue-200 bg-blue-200"
                     aria-hidden="true"
                 >
                 </div>
@@ -110,13 +110,13 @@ export default function Blog() {
                 </div>
             </div>
 
-            <div className="grid lg:grid-cols-[3fr,2fr] gap-8 md:grid-cols-1 px-0 py-8 lg:px-8">
-                <div className="space-y-8 lg:border border-gray-200 rounded-lg lg:p-4 md:p-2 dark:border-gray-700 overflow-y-scroll">
+            <div className="grid lg:grid-cols-[4fr,1fr] gap-8 md:grid-cols-1 px-0 py-4 lg:px-4">
+                <div className="space-y-8 border-gray-200 rounded-lg lg:p-2 md:p-2 dark:border-gray-700 overflow-y-scroll">
                     <h2 className="text-2xl font-bold sticky"> Blog Posts </h2>
                     <BlogTimeline posts={posts} />
                 </div>
 
-                <div className="sticky top-24 overflow-y-scroll hidden lg:block space-y-8 p-4 max-h-[80vh]">
+                <div className="sticky top-24 overflow-y-scroll hidden lg:block space-y-8 max-h-[80vh] border-gray-200 rounded-lg dark:border-gray-700 border px-8 py-4">
                     <h2 className="text-2xl font-bold mb-4 "> Tags </h2>
                     <div className="gap-2 flex flex-wrap">
                         {allTags.map(([tag, count], index) => (
