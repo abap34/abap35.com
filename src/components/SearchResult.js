@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import Tag from './Tag';
+import { SearchCheck } from 'lucide-react';
 import SeachBar from './SearchBar';
+import Tag from './Tag';
+import TagList from './TagList';
 
 async function fetchPosts() {
     try {
@@ -78,12 +80,27 @@ export function Post({ post, query }) {
 
 export default function SearchResult() {
     const [posts, setPosts] = useState([]);
+    const [allTags, setAllTags] = useState([]);
 
     useEffect(() => {
         fetchPosts().then((posts) => {
             setPosts(posts);
         });
     }, []);
+
+    useEffect(() => {
+        const tags = posts.reduce((acc, post) => {
+            post.tags.forEach((tag) => {
+                if (acc[tag]) {
+                    acc[tag] += 1;
+                } else {
+                    acc[tag] = 1;
+                }
+            });
+            return acc;
+        }, {});
+        setAllTags(Object.entries(tags));
+    }, [posts]);
 
 
     const tag = getSearchTag();
@@ -94,22 +111,30 @@ export default function SearchResult() {
 
 
     return (
-        <main className="container mx-auto px-4 py-8 space-y-8">
-            <h1 className="text-4xl font-bold">Search Result</h1>
-            <SeachBar placeholder="Search Again" />
-            <div className="text-gray-600 flex items-center space-x-2">
-                <span>Search for:</span>
-                {query && <span className="bg-blue-100 dark:bg-blue-600 text-blue-600 dark:text-gray-100 px-2 py-1 rounded-lg">{query}</span>}
-                {tag && <Tag name={tag} label={tag} />}
-            </div>
-            <div className="text-gray-600">Found <span className="font-bold">{searchedPosts.length}</span> posts</div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+        <main className="grid grid-cols-1 lg:grid-cols-[4fr,1fr] gap-4 container mx-auto px-4 py-8 space-y-8">
+            <div className="space-y-8 py-4">
+                {/* <h1 className="text-4xl font-bold">Search Results</h1> */}
+                <div className="flex items-center space-x-2">
+                    <SearchCheck className="w-8 h-8 text-purple-500" />
+                    <h1 className="text-4xl font-bold">Search Results</h1>
+                </div>
+                <SeachBar placeholder="Search Again" />
+                <div className="text-gray-600 flex items-center space-x-2">
+                    <span>Search for:</span>
+                    {query && <span className="bg-blue-100 dark:bg-blue-600 text-blue-600 dark:text-gray-100 px-2 py-1 rounded-lg">{query}</span>}
+                    {tag && <Tag name={tag} label={tag} />}
+                </div>
+                <div className="text-gray-600">Found <span className="font-bold">{searchedPosts.length}</span> posts</div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
 
-                {searchedPosts.map((post) => (
-                    <Post key={post.url} post={post} query={query} />
-                ))}
-            </div>
-        </main>
+                    {searchedPosts.map((post) => (
+                        <Post key={post.url} post={post} query={query} />
+                    ))}
+                </div></div>
+
+            <TagList allTags={allTags} header='Found Tags' />
+        </main >
+
     );
 }
 
