@@ -112,7 +112,7 @@ export default function About() {
                     <h1 className="text-4xl font-bold">
                         <span className="text-blue-600">abap34</span>'s Blog
                     </h1>
-                    <button className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded flex items-center space-x-2 transition duration-300 dark:bg-orange-400 hidden lg:flex"  onClick={copyRSS}>
+                    <button className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded flex items-center space-x-2 transition duration-300 dark:bg-orange-400 hidden lg:flex" onClick={copyRSS}>
                         <FaRss className="mr-2" />
                         Copy RSS URL
                     </button>
@@ -143,15 +143,18 @@ export default function About() {
             </div>
 
 
-            <div className="grid lg:grid-cols-[3fr,2fr] gap-8 md:grid-cols-1">
+            <div className="grid lg:grid-cols-[3fr,2fr] gap-8 md:grid-cols-1 px-8 py-8">
+
+
+
                 <div className="space-y-8 lg:border border-gray-200 rounded-lg lg:p-4 md:p-2 dark:border-gray-700 overflow-y-scroll">
-                    <h2 className="text-2xl font-bold"> Posts Timeline </h2>
+                    <h2 className="text-2xl font-bold sticky"> Blog Posts </h2>
                     <BlogTimeline posts={posts} />
                 </div>
 
                 <div className="sticky top-24 overflow-y-scroll hidden lg:block space-y-8 p-4 max-h-[80vh]">
                     <h2 className="text-2xl font-bold mb-4 "> Tags </h2>
-                    <div className="grid grid-cols-2 gap-2">
+                    <div className="gap-2 flex flex-wrap">
                         {allTags.map(([tag, count], index) => (
                             <Tag key={index} name={tag} label={`${tag} (${count})`} />
                         ))}
