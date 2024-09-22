@@ -4,6 +4,7 @@ import { FaRss } from 'react-icons/fa';
 import swal from 'sweetalert2';
 import SearchBar from './SearchBar';
 import Tag from './Tag';
+import TagList from './TagList';
 
 async function fetchPosts() {
     try {
@@ -66,6 +67,8 @@ function BlogTimeline({ posts }) {
     );
 }
 
+
+
 export default function Blog() {
     const [posts, setPosts] = useState([]);
     const [allTags, setAllTags] = useState([]);
@@ -127,19 +130,8 @@ export default function Blog() {
                     <BlogTimeline posts={posts.slice(0, 10)} />
                 </div>
 
-                <div className="sticky top-24 overflow-y-scroll hidden lg:block space-y-8 max-h-[80vh] border-gray-200 rounded-lg px-2 py-4">
-                    <div className="flex items-center space-x-2 text-xl font-semibold">
-                        <Tags className="w-6 h-6 text-amber-500" />
-                        <h2 className="text-2xl font-bold"> Tags </h2>
-                    </div>
+                <TagList allTags={allTags} />
 
-                    <div className="gap-2 flex flex-wrap dark:border-gray-700 border p-4 rounded-lg">
-                        {allTags.map(([tag, count], index) => (
-                            <Tag key={index} name={tag} label={`${tag} (${count})`} />
-                        ))}
-                    </div>
-
-                </div>
             </div>
         </main>
     );
