@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { FaRss, FaSearch } from 'react-icons/fa';
+import { FaRss } from 'react-icons/fa';
 import swal from 'sweetalert2';
 import Tag from './Tag';
-
+import SearchBar from './SearchBar'; 
 
 async function fetchPosts() {
     try {
@@ -18,8 +18,6 @@ async function fetchPosts() {
     }
 }
 
-
-
 function copyRSS() {
     navigator.clipboard.writeText('https://www.abap34.com/rss.xml');
     swal.fire({
@@ -31,7 +29,6 @@ function copyRSS() {
     });
 }
 
-
 function BlogTimeline({ posts }) {
     return (
         <div className="container mx-auto px-4 py-8">
@@ -41,7 +38,6 @@ function BlogTimeline({ posts }) {
                     aria-hidden="true"
                 >
                 </div>
-
 
                 {posts.map((post, index) => (
                     <div key={index} className="relative space-y-4 pl-12 mb-8">
@@ -66,17 +62,11 @@ function BlogTimeline({ posts }) {
                 ))}
             </div>
         </div>
-
     );
 }
 
-
-
-export default function About() {
+export default function Blog() {
     const [posts, setPosts] = useState([]);
-    const [searchQuery, setSearchQuery] = useState('');
-
-    // タグの一覧. (name => 個数) の map としてもつ
     const [allTags, setAllTags] = useState([]);
 
     useEffect(() => {
@@ -96,14 +86,9 @@ export default function About() {
             });
             return acc;
         }, {});
-        // 個数でソート
         const sortedTags = Object.entries(tags).sort((a, b) => b[1] - a[1]);
         setAllTags(sortedTags);
-    }
-        , [posts]);
-
-
-
+    }, [posts]);
 
     return (
         <main className="container mx-auto px-4 py-8">
@@ -117,31 +102,13 @@ export default function About() {
                         Copy RSS URL
                     </button>
                     <div className="flex space-x-2">
-                        <div className="relative flex-grow">
-                            <input
-                                type="text"
-                                placeholder="Search Blog"
-                                className="w-full h-full px-4 py-2 border border-gray-300 rounded-md pr-10 focus:outline-none focus:ring focus:ring-blue-600 focus:border-blue-600 transition duration-300 placeholder-gray-400 dark:placeholder-gray-500 dark:bg-gray-800"
-                                value={searchQuery}
-                                onChange={(e) => setSearchQuery(e.target.value)}
-                                onKeyDown={(e) => {
-                                    if (e.key === 'Enter') {
-                                        window.location.href = `/search?q=${searchQuery}`;
-                                    }
-                                }
-                                }
-                            />
-                            <button className="absolute right-2 top-2 text-gray-400" onClick={() => window.location.href = `/search?q=${searchQuery}`}>
-                                <FaSearch />
-                            </button>
-                        </div>
+                        <SearchBar />
                     </div>
                 </div>
                 <div className="flex justify-center items-center">
                     <img src="/icon.png" alt="Blog Icon" className="max-w-full h-auto" />
                 </div>
             </div>
-
 
             <div className="grid lg:grid-cols-[3fr,2fr] gap-8 md:grid-cols-1 px-0 py-8 lg:px-8">
                 <div className="space-y-8 lg:border border-gray-200 rounded-lg lg:p-4 md:p-2 dark:border-gray-700 overflow-y-scroll">
@@ -155,8 +122,8 @@ export default function About() {
                         {allTags.map(([tag, count], index) => (
                             <Tag key={index} name={tag} label={`${tag} (${count})`} />
                         ))}
-
                     </div>
+
                 </div>
             </div>
         </main>

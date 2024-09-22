@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Tag from './Tag';
+import SeachBar from './SearchBar';
 
 async function fetchPosts() {
     try {
@@ -13,7 +14,7 @@ async function fetchPosts() {
         console.error("Error fetching posts:", error);
         return [];
     }
-}
+};
 
 function getSearchQuery() {
     const params = new URLSearchParams(window.location.search);
@@ -95,10 +96,11 @@ export default function SearchResult() {
     return (
         <main className="container mx-auto px-4 py-8 space-y-8">
             <h1 className="text-4xl font-bold">Search Result</h1>
+            <SeachBar placeholder="Search Again" />
             <div className="text-gray-600 flex items-center space-x-2">
                 <span>Search for:</span>
-                { query && <span className="bg-blue-100 dark:bg-blue-600 text-blue-600 dark:text-gray-100 px-2 py-1 rounded-lg">{query}</span> }
-                { tag && <Tag name={tag} label={tag} /> }
+                {query && <span className="bg-blue-100 dark:bg-blue-600 text-blue-600 dark:text-gray-100 px-2 py-1 rounded-lg">{query}</span>}
+                {tag && <Tag name={tag} label={tag} />}
             </div>
             <div className="text-gray-600">Found <span className="font-bold">{searchedPosts.length}</span> posts</div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
